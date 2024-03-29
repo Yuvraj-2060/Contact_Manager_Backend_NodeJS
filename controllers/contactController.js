@@ -72,7 +72,6 @@ const deleteContact= asyncHandler(async (req, res) => {
     if(!contact){
         res.status(404);
         throw new Error("Contact Not Found");
-        return;
     }
     await contact.deleteOne(); // Remove the found contact, not the entire Contact model
     res.status(200).json({ message: "Contact deleted successfully", deletedContact: contact });
